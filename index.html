@@ -4,31 +4,407 @@
 <head>
 <meta charset="utf-8">
 <title>Homework #8</title>
-<link rel="stylesheet" href="hw8.css">
+<link rel="stylesheet" href="module-grid.css">
 <link rel="stylesheet" href="hw8-fonts.css">
 </head>
 
 <body>
 
-<div class="header">
-<div class="subheader clearfix">
-<img src="logo.png" style="float: left; padding-top: 0; padding-left: 0;">
-<div class="sitename"><b><i>BLOG+</i></b></div>
-<div class="nav robotofont20px"><a>РУБРИКИ</a><a>|</a><a>ГАЛЕРЕЯ</a><a>|</a><a>КОНТАКТЫ</a></div>
-<div class="menu"><img src="menu.png"></div>
-<div class="menu-items robotofont20px"><ul>
-<li>Lorem ipsum 1</li>
-<li>Lorem ipsum 2</li>
-<li>Lorem ipsum 3</li>
-<li>Lorem ipsum 4</li>
+<style>
+
+body, html {
+margin: 0; 
+padding: 0;
+font-family: Roboto;
+}
+
+.module-grid__cell-12 {
+height: 150px;
+background-color: #cfe5ef;
+}
+
+.module-grid__cell-8 {
+margin: 25px auto;
+padding: 14px 20px;
+display: inline-block;
+vertical-align: middle;
+float: none;
+}
+
+.module-grid__cell-2 {
+margin: 0 auto;
+padding: 10px 10px;
+width: 15%;
+}
+
+.module-grid__cell-custom {
+float: left;
+margin-left: 15px;
+height: 62px;
+width: 50px;
+}
+
+.module-grid__cell-1 {
+line-height: 62px;
+text-align: left;
+font-size: 48px;
+font-style: italic;
+font-weight: bold;
+color: #2c2c2c;
+width: auto;
+padding-left: 7px;
+}
+
+.button-login {
+float: right;
+margin-right: 0;
+height: 60px;
+width: 124px;
+font-size: 20px;
+line-height: 60px;
+text-align: center;
+background-color: white;
+font-style: normal;
+font-weight: normal;
+color: #2c2c2c;
+}
+
+nav {
+margin-top: 18px;
+margin-left: 55px;
+display: inline-block;
+width: 65%;
+}
+
+nav ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  outline: none; 
+}
+
+.navigation-links {
+  backface-visibility: hidden;
+}
+
+.navigation-links > li {
+  display: inline-block;
+  position: relative;
+}
+
+.navigation-links > li:nth-child(2) a {
+   padding-left: 12px;
+   padding-right: 12px;
+   border-left: 2px solid black;
+   border-right: 2px solid black;
+}
+
+.navigation-links > li > a {
+  height: 30px;
+  line-height: 28px;
+  padding: 0 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: .4s ease-in-out;
+  color: black;
+  font-size: 20px;
+}
+
+.navigation-links li a:hover {
+ background-color: white;
+}
+
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: white;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 5;
+  width: 200px;
+  -webkit-transition: 0.2s ease-in-out;
+  border: 4px solid white;
+}
+
+.navigation-links > li:hover .submenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.submenu li {
+  font-size: 20px;
+  line-height: 36px;
+  padding: 0 25px;
+  transition: .4s ease-in-out;
+}
+
+p {
+font-size: 18px;
+font-style: normal;
+font-weight: bold;
+margin: 0;
+padding: 0;
+}
+
+.divider {
+margin-top: 14px;
+margin-bottom: 30px;
+padding-top: 0;
+height: 6px;
+width: 200px;
+background-color: #c3c3c3;
+}
+
+.comments {
+float: left;
+margin-left: 20px;
+width: 1050px;
+}
+
+.gallery {
+margin-left: 20px;
+}
+
+.gallery-captions {
+display: inline-block; 
+width: 270px; 
+font-size: 12.78px;
+padding-left: 8px;
+margin-bottom: 56px;
+}
+
+.module-grid__cell-3:nth-child(4), .module-grid__cell-3:nth-child(8) {
+width: 24%;
+margin-right: 0;
+}
+
+input, label {
+display: block;
+}
+
+label {
+font-weight: bold;
+font-size: 13px;
+}
+
+.input-params-image-phone {
+background: url(phone-call.png) no-repeat scroll 15px 10px;
+border: 1px solid black;
+margin-top: 10px;
+padding-left: 45px;
+height: 42px;
+width: 230px;
+}
+
+.input-params-image-lock {
+background: url(lock.png) no-repeat scroll 15px 10px;
+border: 1px solid black;
+margin-top: 10px;
+padding-left: 45px;
+height: 42px;
+width: 230px;
+}
+
+.input-params-image-text {
+background: url(chat-comment.png) no-repeat scroll 15px 10px;
+padding-left: 45px;
+}
+
+.phone-violet {
+background-image: url(phone-call-violet.png) , url(arrow-down.png);
+border: 1px solid black;
+background-position: 15px 10px, 250px 15px; 
+background-attachment: scroll;
+background-repeat: no-repeat;
+background-size: auto;
+padding-left: 45px;
+}
+
+.lock-violet {
+background: url(lock-violet.png) no-repeat scroll 15px 10px;
+}
+
+.textarea-violet {
+background: url(chat-comment-violet.png) no-repeat scroll 15px 10px;
+}
+
+.input-params {
+margin-top: 10px;
+padding-left: 15px;
+height: 42px;
+width: 260px;
+border: 1px solid black;
+}
+
+.select-params-image-phone {
+background-image: url(phone-call.png) , url(arrow-down.png); 
+background-position: 15px 10px, 250px 15px; 
+background-attachment: scroll;
+background-repeat: no-repeat;
+background-size: auto;
+padding-left: 45px;
+}
+
+.pseudo-focus {
+ background-color: #e9f8ff;
+}
+
+.form-gallery-item:nth-child(1), .form-gallery-item:nth-child(3), .form-gallery-item:nth-child(5) {
+margin-left: 0;
+}
+
+input:focus {
+ background-color: #e9f8ff;
+}
+
+.bold-value {
+ font-weight: bold;
+}
+
+select {
+background-color: white;
+border: 1px solid grey;
+height: 42px;
+margin-top: 10px;
+padding-left: 15px;
+width: 277px;
+-webkit-appearance: none;
+background: url(arrow-down.png) 96% / 5% no-repeat white;
+}
+
+.form-gallery-item {
+ float: left;
+ margin-left: 40px;
+ margin-bottom: 40px;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:25px;
+    height:25px;
+    margin:-2px 8px -6px 0px;
+    font-weight: bold;
+    background:url(sprite.png) left top no-repeat;
+}
+input[type="checkbox"]:checked + label span {
+    background:url(sprite.png) -26px top no-repeat;
+}
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="checkbox"]:checked + label, input[type="radio"]:checked + label {
+   color: #52359d;
+   font-weight: bold;
+}
+
+input[type="radio"] + label span {
+    display:inline-block;
+    width:25px;
+    height:25px;
+    margin:-2px 8px -3px 0px;
+    vertical-align:middle;
+    background:url(sprite.png) -55px top no-repeat;
+    cursor:pointer;
+}
+
+input[type="radio"]:checked + label span {
+    background:url(sprite.png) -80px top no-repeat;
+}
+
+.form-gallery-item-type02 {
+ float: left;
+ margin-left: 40px;
+}
+
+.form-gallery-item-type02:nth-of-type(1) {
+ margin-left: 0; 
+}
+
+.form-gallery-item-type03 label {
+ display: inline-block;
+ margin-right: 40px;
+}
+
+.module-grid__cell-6:nth-child(2) {
+float: right;
+}
+
+.form-gallery-item-type04 {
+ margin-left: 40px !important;
+}
+
+textarea {
+resize: none;
+font-family: Roboto;
+padding: 10px 10px;
+}
+
+.upload-btn-wrapper {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+}
+
+button {
+  border: 1px solid gray;
+  color: black;
+  background-color: white;
+  padding: 12px 20px;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 13px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+</style>
+
+<div class="module-grid__cell-12">
+<div class="module-grid__cell-2"></div>
+<div class="module-grid__cell-8">
+<div class="module-grid__cell-custom"><img src="logo.png"></div>
+<div class="module-grid__cell-1"><b><i>BLOG+</i></b></div>
+<nav class="clearfix">
+<ul class="navigation-links">
+<li class=""><a href="">РУБРИКИ</a></li>
+<li class=""><a href="">ГАЛЕРЕЯ</a>
+      <ul class="submenu">
+        <li>Lorem ipsum 1</li>
+        <li>Lorem ipsum 2</li>
+        <li>Lorem ipsum 3</li>
+        <li>Lorem ipsum 4</li>
+      </ul>
+</li>
+<li class=""><a href="">КОНТАКТЫ</a>
+</li>
 </ul>
+</nav>
+<div class="button-login">ВХОД</div>
 </div>
-<div class="signinbutton robotofont20px">ВХОД</div>
 </div>
-</div>
-
-<div class="mainpart">
-
+<div class="module-grid__cell-2"></div>
+<div class="module-grid__cell-8">
 <p>Сетка флоатов (12 позиций)</p>
 <div class="divider"></div>
 <div style="float: left; height: 50px; width: 92.32%; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div>
@@ -42,9 +418,9 @@
 <div style="float: left; height: 50px; width: 58.56%; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div>
 <div style="float: left; height: 50px; width: 41.12%; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div><br>
 <div style="float: left; height: 50px; width: 50.08%; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div>
-<div style="float: left; height: 50px; width: 49.60%; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div><br>
+<div style="float: left; height: 50px; width: 49.60%; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div>
 
-<div style="display: inline-block; height: 60px"></div>
+<div style="min-height: 60px; clear: both"></div>
 
 <p>Сетка флоатов, с отступами</p>
 <div class="divider"></div>
@@ -59,7 +435,8 @@
 <div style="float: left; height: 50px; width: 57.76%; margin-bottom: 20px; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div>
 <div style="float: left; height: 50px; width: 40.32%; margin-left: 20px; margin-bottom: 20px; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div><br>
 <div style="float: left; height: 50px; width: 49.28%; margin-bottom: 20px; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div>
-<div style="float: left; height: 50px; width: 48.8%; margin-left: 20px; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div><br>
+<div style="float: left; height: 50px; width: 48.8%; margin-left: 20px; background-color: #e2e2e2; border: 1px solid #9f9f9f"></div>
+<br>
 
 <div style="display: inline-block; height: 60px"></div>
 
@@ -78,9 +455,9 @@
 <div style="height: 50px;"></div>
 <div style="float: left; margin-left: 20px; color: #797979; font-size: 16px;">Говоря о деталях, для того чтобы товар бросался в глаза и его хотелось купить, с помощью акцентного освещения получается сделать четкие грани, что обеспечивает контрастность в освещении. Также с помощью профессионального светотехнического оборудования можно варьировать оттенок белого света. Например, для каждой отдельной коллекции необходимо свое восприятие, а также естественное освещение, что повышает уровень интереса клиентов.</div>
 </div>
-<div style="display: inline-block; height: 30px; width: 100%"></div>
+<div style="display: inline-block; min-height: 30px; width: 100%"></div>
 <img src="Shape 1.png">
-<div style="display: inline-block; height: 30px; width: 100%"></div>
+<div style="display: inline-block; min-height: 30px; width: 100%"></div>
 <img src="Ellipse 1.png" style="float: left;">
 <div class="comments clearfix">
 <div style="height: 15px;"></div>
@@ -90,9 +467,9 @@
 <div style="height: 50px;"></div>
 <div style="float: left; margin-left: 20px; color: #797979; font-size: 16px;">Говоря о деталях, для того чтобы товар бросался в глаза и его хотелось купить, с помощью акцентного освещения получается сделать четкие грани, что обеспечивает контрастность в освещении. Также с помощью профессионального светотехнического оборудования можно варьировать оттенок белого света. Например, для каждой отдельной коллекции необходимо свое восприятие, а также естественное освещение, что повышает уровень интереса клиентов.</div>
 </div>
-<div style="display: inline-block; height: 30px; width: 100%"></div>
+<div style="display: inline-block; min-height: 30px; width: 100%"></div>
 <img src="Shape 1.png">
-<div style="display: inline-block; height: 30px; width: 100%"></div>
+<div style="display: inline-block; min-height: 30px; width: 100%"></div>
 <img src="Ellipse 1.png" style="float: left;">
 <div class="comments clearfix">
 <div style="height: 15px;"></div>
@@ -102,67 +479,216 @@
 <div style="height: 50px;"></div>
 <div style="float: left; margin-left: 20px; color: #797979; font-size: 16px;">Говоря о деталях, для того чтобы товар бросался в глаза и его хотелось купить, с помощью акцентного освещения получается сделать четкие грани, что обеспечивает контрастность в освещении. Также с помощью профессионального светотехнического оборудования можно варьировать оттенок белого света. Например, для каждой отдельной коллекции необходимо свое восприятие, а также естественное освещение, что повышает уровень интереса клиентов.</div>
 </div>
-<div style="display: inline-block; height: 30px; width: 100%"></div>
-<div style="display: inline-block; height: 68px; width: 100%"></div>
+<div style="display: inline-block; min-height: 30px; width: 100%"></div>
+<div style="display: inline-block; min-height: 68px; width: 100%"></div>
+
+
 <p style="font-size: 24px; text-align: center">Галерея</p>
 <div class="divider" style="margin: 14px auto"></div>
+
 <div style="display: inline-block; height: 30px; width: 100%"></div>
+
 <div class="gallery clearfix">
-<div class="gallery-item">
-<img src="Shape 4.png">
+
+<div class="module-grid__cell-3"><img src="Shape 4.png">
 <div style="display: inline-block; height: 13px; width: 100%"></div>
 <div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
 Lorem ipsum dolor sit amet,</b></div>
 </div>
-<div class="gallery-item">
-<img src="Shape 4.png">
+<div class="module-grid__cell-3"><img src="Shape 4.png">
 <div style="display: inline-block; height: 13px; width: 100%"></div>
 <div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
 Lorem ipsum dolor sit amet,</b></div>
 </div>
-<div class="gallery-item">
-<img src="Shape 4.png">
+<div class="module-grid__cell-3"><img src="Shape 4.png">
 <div style="display: inline-block; height: 13px; width: 100%"></div>
 <div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
 Lorem ipsum dolor sit amet,</b></div>
 </div>
-<div class="gallery-item">
-<img src="Shape 4.png">
+<div class="module-grid__cell-3"><img src="Shape 4.png">
 <div style="display: inline-block; height: 13px; width: 100%"></div>
 <div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
 Lorem ipsum dolor sit amet,</b></div>
+</div>
+<div class="module-grid__cell-3"><img src="Shape 4.png">
+<div style="display: inline-block; height: 13px; width: 100%"></div>
+<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
+Lorem ipsum dolor sit amet,</b></div>
+</div>
+<div class="module-grid__cell-3"><img src="Shape 4.png">
+<div style="display: inline-block; height: 13px; width: 100%"></div>
+<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
+Lorem ipsum dolor sit amet,</b></div>
+</div>
+<div class="module-grid__cell-3"><img src="Shape 4.png">
+<div style="display: inline-block; height: 13px; width: 100%"></div>
+<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
+Lorem ipsum dolor sit amet,</b></div>
+</div>
+<div class="module-grid__cell-3"><img src="Shape 4.png">
+<div style="display: inline-block; height: 13px; width: 100%"></div>
+<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
+Lorem ipsum dolor sit amet,</b></div>
+</div>
+</div>
+<p>Элементы формы</p>
+<div class="divider"></div>
+<div class="parent-test">
+<div class="module-grid__cell-6">
+<div class="form-gallery clearfix">
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params" type="text" name="query" placeholder="Input text placeholder">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params bold-value" type="text" name="query" value="Input text">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params-image-lock" type="text" name="query" placeholder="Input text placeholder">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params-image-lock bold-value" type="text" name="query" value="Input text">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <select class="select bold-value">
+<option>Select items</option>
+  <option>Select items 2</option></select>
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <select class="select bold-value pseudo-focus">
+<option>Select items (focus)</option>
+ <option>Select items 2</option></select>
+</form>
+</div>
 </div>
 
-<div class="gallery-item">
-<img src="Shape 4.png">
-<div style="display: inline-block; height: 13px; width: 100%"></div>
-<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
-Lorem ipsum dolor sit amet,</b></div>
+<div style="display: inline-block; height: 20px; width: 100%"></div>
+     <label style="margin-bottom: 10px;">Lorem ipsum</label>
+<div class="clearfix">
+<div class="form-gallery-item-type02" style="margin-left: 0">
+<form action="url">
+     <input type="checkbox" id="c1" name="cc" />
+    <label for="c1"><span></span>Lorem Ipsum dolar</label>
+</form>
 </div>
-<div class="gallery-item">
-<img src="Shape 4.png">
-<div style="display: inline-block; height: 13px; width: 100%"></div>
-<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
-Lorem ipsum dolor sit amet,</b></div>
+<div class="form-gallery-item-type02">
+<form action="url">
+     <input type="checkbox" id="c2" name="cc" />
+    <label for="c2"><span></span>Lorem Ipsum dolar</label>
+</form>
 </div>
-<div class="gallery-item">
-<img src="Shape 4.png">
-<div style="display: inline-block; height: 13px; width: 100%"></div>
-<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
-Lorem ipsum dolor sit amet,</b></div>
+<div class="form-gallery-item-type02">
+<form action="url">
+     <input type="checkbox" id="c3" name="cc" />
+    <label for="c3"><span></span>Lorem Ipsum dolar</label>
+</form>
 </div>
-<div class="gallery-item">
-<img src="Shape 4.png">
-<div style="display: inline-block; height: 13px; width: 100%"></div>
-<div class="gallery-captions"><b>Lorem ipsum dolor sit amet, consectetur.
-Lorem ipsum dolor sit amet,</b></div>
 </div>
-<div style="display: inline-block; height: 1280px; width: 100%"></div>
+<div style="margin-top: 22px;">
+     <label style="padding-bottom: 8px">Lorem ipsum</label>
+<textarea rows="10" cols="82" placeholder="Textarea placeholder"></textarea>
+</div>
+<div style="margin-top: 20px;">
+     <label style="padding-bottom: 8px">Lorem ipsum</label>
+<textarea class="input-params-image-text" rows="10" cols="77" placeholder="Textarea placeholder"></textarea>
+</div>
+
+<button type="submit">SUBMIT</button>
+<button type="reset">RESET</button>
+<button type="button">BUTTON</button>
+<div class="upload-btn-wrapper">
+  <button class="button"><img src="upload.png" style="padding: -10px auto; margin-right:5px">UPLOAD FILE</button>
+  <input type="file" name="myfile" />
+</div>
+
+</div>
+
+
+
+<div class="module-grid__cell-6">
+<div class="form-gallery clearfix">
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params pseudo-focus" type="text" name="query" placeholder="Focus state">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params bold-value pseudo-focus" type="text" name="query" placeholder="Focus state input value">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params-image-lock pseudo-focus lock-violet" type="text" name="query" placeholder="Focus state">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <input class="input-params-image-lock bold-value pseudo-focus lock-violet" type="text" name="query" placeholder="Focus state input value">
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <select class="select-params-image-phone bold-value">
+<option>Select items</option>
+  <option>Select items 2</option></select>
+</form>
+</div>
+<div class="form-gallery-item">
+<form action="url">
+        <label>Lorem ipsum</label>
+        <select class="phone-violet bold-value pseudo-focus">
+<option>Select items (focus)</option>
+ <option>Select items 2</option></select>
+</div>
+</div>
+<div style="display: inline-block; height: 20px; width: 100%"></div>
+<label style="margin-bottom: 10px;">Lorem ipsum</label>
+<div class="form-gallery-item-type03">
+<form action="url">
+     <input type="radio" id="r1" name="rr" />
+    <label for="r1"><span></span>Lorem Ipsum dolar</label>
+
+     <input type="radio" id="r2" name="rr" />
+    <label for="r2"><span></span>Lorem Ipsum dolar</label>
+
+     <input type="radio" id="r3" name="rr" />
+    <label for="r3"><span></span>Lorem Ipsum dolar</label>
+</form>
+</div>
+<div style="margin-top: 20px;">
+     <label style="padding-bottom: 8px">Lorem ipsum</label>
+<textarea class="pseudo-focus bold-value" rows="10" cols="82">Textarea value</textarea>
+</div>
+<div style="margin-top: 20px;">
+     <label style="padding-bottom: 8px">Lorem ipsum</label>
+<textarea class="input-params-image-text textarea-violet pseudo-focus bold-value" rows="10" cols="77">Textarea value</textarea>
+</div>
 </div>
 </div>
 
 </div>
-</div>
+
 </body>
-
 </html>
