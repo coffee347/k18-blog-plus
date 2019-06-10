@@ -1,7 +1,8 @@
-﻿.clearfix::after {
+﻿.module-grid::after {
 	content: '';
 	display: block;
 	clear: both;
+              height: 0;
 }
 
 .module-grid__cell-12 {
@@ -36,7 +37,7 @@
 
 .module-grid__cell-6 {
 	float: left;
-	width: 50% !important;
+	width: 50%;
 }
 
 .module-grid__cell-5 {
