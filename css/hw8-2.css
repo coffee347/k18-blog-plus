@@ -8,6 +8,10 @@
   overflow: auto;
 }
 
+.bold-value {
+  font-weight: bold;
+}
+
 input, label {
   display: block;
 }
@@ -256,8 +260,8 @@ input, label {
 }
 
 .gallery-description-gap {
-height: 13px; 
-width: auto;
+  height: 13px; 
+  width: auto;
 } 
 
 .gallery-item {
@@ -277,7 +281,7 @@ width: auto;
 .gallery-picture::after {
   content: "";
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid #e2e2e2;
   width: calc(100% - 10px);
   height: calc(100% - 10px);
 }
@@ -324,7 +328,7 @@ width: auto;
  margin-bottom: 40px;
 }
 
-label {
+.label-bold {
   font-weight: bold;
   font-size: 13px;
 }
@@ -346,39 +350,24 @@ label {
   width: 230px;
 }
 
-.phone-violet {
-  background-image: url(../images/phone-call-violet.png) , url(../images/arrow-down.png);
-  border: 1px solid black;
-  background-position: 15px 10px, 250px 15px; 
-  background-attachment: scroll;
-  background-repeat: no-repeat;
-  background-size: auto;
-  padding-left: 45px;
-  border: 2px solid black;
-}
-
 .lock-violet {
   background: url(../images/lock-violet.png) no-repeat scroll 15px 10px;
 }
 
 .list-phone {
-  background-image: url(../images/phone-call.png) , url(../images/arrow-down.png); 
-  background-position: 15px 10px, 250px 15px; 
-  background-attachment: scroll;
-  background-repeat: no-repeat;
-  background-size: auto;
-  padding-left: 45px;
+  background-image: url(../images/phone-call.png) , url(../images/arrow-down.png) !important; 
+  background-position: 15px 10px, 250px 15px !important; 
+  background-attachment: scroll !important;
+  background-repeat: no-repeat !important;
+  background-size: auto !important;
+  padding-left: 45px !important;
 }
 
 input:focus {
   background-color: #e9f8ff;
 }
 
-.bold-value {
-  font-weight: bold;
-}
-
-select {
+.gselect {
    background-color: white;
    border: 1px solid grey;
    height: 42px;
@@ -386,17 +375,16 @@ select {
    padding-left: 15px;
    width: 277px;
    -webkit-appearance: none;
-   background: url(../arrow-down.png) 96% / 5% no-repeat white;
+   background: url(../images/arrow-down.png) 96% / 5% no-repeat white;
 }
 
-.form-gallery-item:nth-of-type(2) input:focus {
-  background-image: url(../images/lock-violet.png)
+.lock-focus:focus {
+  background-image: url(../images/lock-violet.png);
 }
 
-.form-gallery-item:nth-of-type(3) select:focus {
-  background-image: url(../images/phone-call-violet.png) , url(../images/arrow-down.png); 
+.sel-foc:focus {
+  background-image: url(../images/phone-call-violet.png) , url(../images/arrow-down.png) !important; 
 }
-
 
 .form-gallery-left-column {
   float: left;
@@ -418,6 +406,7 @@ textarea:focus {
 
 .text-special textarea:focus {
   background: url(../images/chat-comment-violet.png) no-repeat scroll 15px 10px;
+  background-color: #e9f8ff;
 }
 
 textarea {
@@ -426,12 +415,11 @@ textarea {
   padding: 10px 10px;
 }
 
-
-input[type="checkbox"] {
+.input-hidden {
     display: none;
 }
 
-input[type="checkbox"] + label span {
+.label-span {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -441,21 +429,21 @@ input[type="checkbox"] + label span {
     cursor: pointer;
 }
 
-input[type="checkbox"]:checked + label span {
+.input-hidden:checked + label span {
     background: url(../images/sprite.png) -26px top no-repeat;
     cursor: pointer;
 }
 
-input[type="radio"] {
-    display:none;
+.radio-hidden {
+    display: none;
 }
 
-input[type="checkbox"]:checked + label, input[type="radio"]:checked + label {
+.input-hidden:checked + label, .radio-hidden:checked + label {
    color: #52359d;
    font-weight: bold;
 }
 
-input[type="radio"] + label span {
+.radio-hidden + label span {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -465,18 +453,18 @@ input[type="radio"] + label span {
     cursor: pointer;
 }
 
-input[type="radio"]:checked + label span {
+.radio-hidden:checked + label span {
     background:url(../images/sprite.png) -80px top no-repeat;
 }
 
 .form-gallery-checkboxes {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .form-gallery-checkbox label {
- margin-top: 14px;
- display: inline-block;
- margin-right: 20px;
+   margin-top: 14px;
+   display: inline-block;
+   margin-right: 20px;
 }
 
 .form-gallery-checkbox {
@@ -492,6 +480,18 @@ input[type="radio"]:checked + label span {
  margin-top: 10px;
  display: inline-block;
  margin-right: 40px;
+}
+
+.textarea-label-gap {
+  padding-bottom: 8px;
+}
+
+.textarea-top-gap {
+  margin-top: 20px;
+}
+
+.clearfix-2 {
+  clear: both;
 }
 
 .upload-btn-wrapper {
@@ -532,5 +532,3 @@ button:hover {
   background-color: red;
   cursor: pointer;
 }
-
-
